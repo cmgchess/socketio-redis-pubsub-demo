@@ -1,9 +1,10 @@
 const http = require('http');
-const cors = require('cors');
 const express = require('express');
+
 const { createClient } = require('redis');
 const { createAdapter } = require('@socket.io/redis-adapter');
 const socketio = require('socket.io');
+
 const formatMessage = require('./utils/messages');
 const {
   userJoin,
@@ -11,13 +12,16 @@ const {
   userLeave,
   getRoomUsers,
 } = require('./utils/users');
+
 const PORT = process.env.PORT;
+
 const app = express();
-app.use(cors());
 const server = http.createServer(app);
+
+//https://socket.io/docs/v4/using-multiple-nodes/#enabling-sticky-session
 const io = socketio(server, {
   cors: {
-    origin: ['http://127.0.0.1:5500', 'http://localhost:80'],
+    origin: ['http://127.0.0.1:5500'],
     methods: ['GET', 'POST'],
     transports: ['websocket', 'polling'],
     credentials: true,
@@ -28,6 +32,7 @@ const url = 'redis://127.0.0.1:6379';
 pubClient = createClient({ url });
 subClient = pubClient.duplicate();
 
+//https://socket.io/docs/v4/redis-adapter/#usage
 const initPubSub = async () => {
   await Promise.all([pubClient.connect(), subClient.connect()]);
   io.adapter(createAdapter(pubClient, subClient));
