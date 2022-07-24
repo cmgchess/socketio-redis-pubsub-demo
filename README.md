@@ -49,7 +49,7 @@ events { }
 **Running server**
 
  1. cd into `server` and open 2 terminals for the same directory
- 2. Set 2 different ports ( ex: `export PORT=1212` in one terminal and `export PORT=1213 in the other`)
+ 2. Set 2 different ports ( ex: `export PORT=1212` in one terminal and `export PORT=1213` in the other)
  3. Start nginx with the given configuration
  4. `npm start` the server on both terminals
  
