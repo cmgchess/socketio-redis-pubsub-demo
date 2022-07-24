@@ -53,8 +53,13 @@ events { }
  3. Start nginx with the given configuration
  4. `npm start` the server on both terminals
  
-Now Server 1 will be started on `PORT=1212` and Server 2 on `PORT=1213` and the Client on `PORT=5500`. Two servers will be load balanced using nginx on `PORT=80` so the client will be directed to either Server 1 or 2 when it hits Port 80. Hash based load balancing is enabled (to achieve stickiness) since nginx open source doesn't allow cookie based load balancing. Go to http://127.0.0.1:5500/ with 2 browsers (Edge and Chrome for example) then the 2 instances will be connected to Server 1 and 2 respectively. 
-Redis will act as a [PubSub](https://redis.io/docs/manual/pubsub/) mechanism and is enabled using [Socket.IO Redis Adapter](https://socket.io/docs/v4/redis-adapter/).
+Now Server 1 will be started on `PORT=1212` and Server 2 on `PORT=1213` and the Client on `PORT=5500`. Two servers will be load balanced using nginx on `PORT=80` so the client will be directed to either Server 1 or 2 when it hits Port 80. Hash based load balancing is enabled (to achieve stickiness) since nginx open source doesn't allow cookie based load balancing. Go to http://127.0.0.1:5500/ with 2 browsers (Edge and Chrome for example) then the 2 instances will be connected to Server 1 and 2 respectively.   
+Redis will act as a [PubSub](https://redis.io/docs/manual/pubsub/) mechanism and is enabled using [Socket.IO Redis Adapter](https://socket.io/docs/v4/redis-adapter/).   
+**NOTE: Redis adapter will not store anything, it will only do PubSub.**   
+If you want you can store data in Redis as well. 
+
+
+![Architecture](/screenshots/archi.png?raw=true "Architecture")
 
 ![User logged in Edge Browser](/screenshots/edge.PNG?raw=true "User logged in Edge Browser")
 ![User logged in Chrome Browser](/screenshots/chrome.PNG?raw=true "User logged in Chrome Browser")
