@@ -1,7 +1,16 @@
+
 **Prerequisites**
 
  - [Realtime Chat With Users & Rooms - Socket.io, Node & Express](https://www.youtube.com/watch?v=jD7FnbI76Hg "Realtime Chat With Users & Rooms - Socket.io, Node & Express")
  - [REPO - bradtraversy/chatcord](https://github.com/bradtraversy/chatcord)
+
+**Additional helpful resources**
+
+- [Scaling Websockets with Redis, HAProxy and Node JS - High-availability Group Chat Application](https://www.youtube.com/watch?v=gzIcGhJC8hA "Scaling Websockets with Redis, HAProxy and Node JS - High-availability Group Chat Application")
+- [Load Balancing NodeJS applications using NginX](https://www.youtube.com/watch?v=eYXXEWVTZpk "Load Balancing NodeJS applications using NginX")
+- [Socket.IO Docs - Using multiple nodes](https://socket.io/docs/v4/using-multiple-nodes/)
+- [Socket.IO Docs - Adapters](https://socket.io/docs/v4/adapter/)
+- [Socket.IO Docs - Redis adapter](https://socket.io/docs/v4/redis-adapter/)
 
 **Additional Tools**
 
@@ -42,6 +51,8 @@ http {
 events { }
 
 ```
+https://stackoverflow.com/questions/59124543/nginx-not-loadbalancing-in-case-of-ip-hash
+
 **Running client**
  1. cd into`client`
  2. run `http-server . --cors --port=5500`
